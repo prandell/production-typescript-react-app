@@ -20,6 +20,11 @@ function App(): JSX.Element {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
+    if (theme === 'dark') {
+      dispatch(setGlobalTheme('dark'))
+    } else {
+      dispatch(setGlobalTheme('light'))
+    }
     document.body.style.fontWeight = 'bold'
   }, [])
 
