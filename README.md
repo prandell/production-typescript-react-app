@@ -12,6 +12,11 @@ I used the following course to help create this application:
 
 - [Complete React Developer in 2022](https://deloittedevelopment.udemy.com/course/complete-react-developer-zero-to-mastery/)
 
+The repository has several branches that represent different concepts/methodologies of I have picked up along the way
+
+- `Feature/context-api`: Uses context files and the Context API to manage global application state
+- `Feature/redux`: Uses ReduxToolkit and React Redux to manage global application state
+
 ## Table of Contents
 
 - [Randell Comics](#Randell-Comics)
@@ -25,9 +30,10 @@ I used the following course to help create this application:
 
 ## Technology Used
 
-Notable technologies are `React@18`, `Typescript`, `ReactRouter@6`, `Firebase@9`, `StyledComponents@5`
+Notable technologies are `React@18`, `Typescript`, `ReactRouter@6`, `ReduxToolkit@1.8.1`, `Firebase@9`, `StyledComponents@5`
 
 - `react`: ^18.0.0
+- `reduxjs/toolkit`: ^1.8.1
 - `typescript`: ^4.6.3
 - `react-dom`: ^18.0.0
 - `react-router-dom`: ^6.3.0
@@ -72,7 +78,9 @@ npm run build
 
 ## Acknowledgements
 
-This simple application was made whilst following the Udemy course below - but modified to be typescript instead of plain js.
+This simple application was made whilst following the Udemy course below
 
+- All Comic book covers are from Marvel or DC comics and are not my own personal artwork
 - [Complete React Developer in 2022](https://deloittedevelopment.udemy.com/course/complete-react-developer-zero-to-mastery/)
 - [Create React App](https://github.com/facebook/create-react-app).
+- [Redux Toolkit](https://redux-toolkit.js.org/)
