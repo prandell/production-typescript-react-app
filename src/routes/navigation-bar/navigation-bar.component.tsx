@@ -6,6 +6,7 @@ import CartIcon from '../../components/cart-icon/cart-icon.component'
 import ThemeToggle from '../../components/theme-toggle/theme-toggle.component'
 import { selectCartOpen } from '../../store/cart/cart.slice'
 import { useAppSelector } from '../../store/hooks'
+import { useGetPokemonByNameQuery } from '../../store/pokemon/pokemon.api.slice'
 import { selectCurrentUser } from '../../store/user/user.slice'
 import { signOutAuthUser } from '../../utils/firebase/firebase.utils'
 import {
@@ -20,6 +21,10 @@ const NavigationBar = () => {
   const currentUser = useAppSelector(selectCurrentUser)
   const cartOpen = useAppSelector(selectCartOpen)
 
+  const { data, error, isLoading } = useGetPokemonByNameQuery('gengar')
+  // Individual hooks are also accessible under the generated endpoints:
+  // const { data, error, isLoading } = pokemonApi.endpoints.getPokemonByName.useQuery('gengar')
+
   const signOutHandler = async (): Promise<void> => {
     await signOutAuthUser()
   }
@@ -29,6 +34,11 @@ const NavigationBar = () => {
         <LogoContainer to="/">
           <Logo alt={'Randell Comics Logo'} src={'randell-comics-filled.png'} />
         </LogoContainer>
+        {isLoading ? (
+          <span>Gengar is loading...</span>
+        ) : (
+          <img src={data.sprites.front_default} alt="gengar" />
+        )}
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser.email ? (
