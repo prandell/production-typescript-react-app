@@ -9,6 +9,7 @@ import {
   selectCategoryMap
 } from '../../store/categories/categories.slice'
 import { useAppSelector } from '../../store/hooks'
+import { capitaliseFirstLetterOfEachWord } from '../../utils/helpers.utils'
 import * as Styled from './category.styles'
 
 const Category = () => {
@@ -23,11 +24,13 @@ const Category = () => {
     }
   }, [categoryName, categoryMap])
 
-  const { items, title } = category
+  const { items } = category
   return (
     <>
       <Styled.CategoryContainer>
-        <Styled.Title>{title}</Styled.Title>
+        <Styled.Title>
+          {capitaliseFirstLetterOfEachWord(String(categoryName))}
+        </Styled.Title>
         <Styled.LineBreak />
         {status !== 'idle' ? (
           <>

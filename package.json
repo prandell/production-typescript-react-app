@@ -14,7 +14,6 @@
     "@types/react-router": "^5.1.18",
     "@types/react-router-dom": "^5.3.3",
     "@types/redux-logger": "^3.0.9",
-    "@types/redux-persist": "^4.3.1",
     "@types/styled-components": "^5.1.25",
     "firebase": "^9.6.11",
     "react": "^18.0.0",

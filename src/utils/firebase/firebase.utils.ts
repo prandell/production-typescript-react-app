@@ -117,8 +117,6 @@ export const addComicCategoriesAndDocuments = async (
 export const getComicCollectionsAndDocuments = async (): Promise<
   DocumentData[]
 > => {
-  //Intentional to allow loading logo to show
-  await new Promise((r) => setTimeout(r, 2000))
   const collectionRef = collection(db, 'categories')
 
   const q = query(collectionRef)
