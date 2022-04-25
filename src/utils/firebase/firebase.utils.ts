@@ -28,7 +28,7 @@ import {
   QueryDocumentSnapshot
 } from 'firebase/firestore'
 import { RandellComicsUser } from '../../models/user.model'
-import { ComicCategory } from '../../models/product-collection.model'
+import { ComicCategory } from '../../models/category.models'
 
 //Randell Comics Web App Configuration
 //apiKey is not a

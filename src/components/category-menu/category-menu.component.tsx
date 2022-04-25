@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CategoryBanner } from '../../models/category.model'
+import { CategoryBanner } from '../../models/category.models'
 import DirectoryItem from '../directory-item/directory-item.component'
 import * as Styled from './category-menu.styles'
 

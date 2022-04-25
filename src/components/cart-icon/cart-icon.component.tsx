@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useContext } from 'react'
-import { CartContext } from '../../contexts/cart.context'
+import { CartContext } from '../../contexts/cart/cart.context'
 import './cart-icon.styles'
 import * as Styled from './cart-icon.styles'
 

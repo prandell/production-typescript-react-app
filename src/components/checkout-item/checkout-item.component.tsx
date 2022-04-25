@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { CartContext } from '../../contexts/cart.context'
-import { ICartItem } from '../../models/cart-item.model'
+import { CartContext } from '../../contexts/cart/cart.context'
+import { ICartItem } from '../../models/cart.models'
 import * as Styled from './checkout-item.styles'
 
 type CheckoutItemProps = {

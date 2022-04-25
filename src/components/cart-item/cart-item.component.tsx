@@ -1,5 +1,5 @@
 import React from 'react'
-import { ICartItem } from '../../models/cart-item.model'
+import { ICartItem } from '../../models/cart.models'
 import './cart-item.styles'
 import * as Styled from './cart-item.styles'
 

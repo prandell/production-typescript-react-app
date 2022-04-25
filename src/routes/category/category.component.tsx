@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ProductCard from '../../components/product-card/product-card.component'
 import { CategoriesContext } from '../../contexts/categories.context'
-import { ComicCategory } from '../../models/product-collection.model'
+import { ComicCategory } from '../../models/category.models'
 import { Product } from '../../models/product.model'
 import * as Styled from './category.styles'
 

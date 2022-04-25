@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { CategoryMap } from '../models/product-collection.model'
+import { CategoryMap } from '../models/category.models'
 import { getComicCollectionsAndDocuments } from '../utils/firebase/firebase.utils'
 
 export interface ICategoriesContext {
