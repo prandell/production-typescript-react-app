@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../contexts/cart/cart.context'
+import React from 'react'
 import { Product } from '../../models/product.model'
+import { addItemToCart } from '../../store/cart/cart.slice'
+import { useAppDispatch } from '../../store/hooks'
 import Button from '../buttons/button/button.component'
 import * as Styled from './product-card.styles'
 
@@ -10,10 +11,10 @@ type ProductCardProps = {
 
 const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
   const { name, imageUrl, price } = product
-  const { addItemToCart } = useContext(CartContext)
+  const dispatch = useAppDispatch()
 
   const addProductToCart = () => {
-    addItemToCart(product)
+    dispatch(addItemToCart(product))
   }
   return (
     <Styled.ProductCardContainer>

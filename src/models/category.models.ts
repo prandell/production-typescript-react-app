@@ -16,3 +16,7 @@ export type ComicCategory = {
 export type CategoryMap = {
   [key: string]: ComicCategory
 }
+
+export type CategoriesState = {
+  categoryMap: CategoryMap
+}

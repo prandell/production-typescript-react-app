@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
-import { CartContext } from '../../contexts/cart/cart.context'
 import { ICartItem } from '../../models/cart.models'
+import { selectCartItems, selectCartTotal } from '../../store/cart/cart.slice'
+import { useAppSelector } from '../../store/hooks'
 import * as Styled from './checkout.styles'
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext)
+  const cartTotal = useAppSelector(selectCartTotal)
+  const cartItems = useAppSelector(selectCartItems)
   return (
     <Styled.CheckoutContainer>
       <Styled.CheckoutHeader>

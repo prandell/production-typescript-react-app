@@ -1,12 +1,16 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../contexts/theme.context'
+import React from 'react'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { selectTheme, setGlobalTheme } from '../../store/theme/theme.slice'
 import * as Styled from './theme-toggle.styles'
 
 const ThemeToggle = (): JSX.Element => {
-  const { theme, setGlobalTheme } = useContext(ThemeContext)
+  const dispatch = useAppDispatch()
+  const theme = useAppSelector(selectTheme)
 
   const clickHandler = () => {
-    theme === 'dark' ? setGlobalTheme('light') : setGlobalTheme('dark')
+    theme === 'dark'
+      ? dispatch(setGlobalTheme('light'))
+      : dispatch(setGlobalTheme('dark'))
   }
 
   return (

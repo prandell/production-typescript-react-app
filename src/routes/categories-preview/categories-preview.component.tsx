@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import CategoryPreview from '../../components/category-preview/category-preview.component'
-import { CategoriesContext } from '../../contexts/categories.context'
+import { selectCategoryMap } from '../../store/categories/categories.slice'
+import { useAppSelector } from '../../store/hooks'
 
 const CategoriesPreview = () => {
-  const { categoryMap } = useContext(CategoriesContext)
+  const categoryMap = useAppSelector(selectCategoryMap)
   const first = 'new'
   const sortFunction = (x: string, y: string) => {
     return x === first ? -1 : y === first ? 1 : 0

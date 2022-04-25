@@ -1,12 +1,19 @@
-import React, { MouseEventHandler, useContext } from 'react'
-import { CartContext } from '../../contexts/cart/cart.context'
+import React, { MouseEventHandler } from 'react'
+import {
+  selectCartCount,
+  selectCartOpen,
+  setCartOpen
+} from '../../store/cart/cart.slice'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import './cart-icon.styles'
 import * as Styled from './cart-icon.styles'
 
 const CartIcon = (): JSX.Element => {
-  const { cartOpen, setCartOpen, cartCount } = useContext(CartContext)
+  const dispatch = useAppDispatch()
+  const cartOpen = useAppSelector(selectCartOpen)
+  const cartCount = useAppSelector(selectCartCount)
   const toggleCartOpen: MouseEventHandler<HTMLDivElement> = () => {
-    setCartOpen(!cartOpen)
+    dispatch(setCartOpen(!cartOpen))
   }
 
   return (
