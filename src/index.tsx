@@ -1,28 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import CartProvider from './contexts/cart.context'
-import CategoriesProvider from './contexts/categories.context'
-import ThemeProvider from './contexts/theme.context'
-import UserProvider from './contexts/user.context'
 import './index.scss'
 import reportWebVitals from './reportWebVitals'
+import { store } from './store/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
+import LoadingLogo from './components/loading-logo/loading-logo.component'
 
+let persistor = persistStore(store)
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <BrowserRouter>
-        <UserProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </CategoriesProvider>
-        </UserProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={<LoadingLogo />} persistor={persistor}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 )
 

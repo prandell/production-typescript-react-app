@@ -28,7 +28,7 @@ import {
   QueryDocumentSnapshot
 } from 'firebase/firestore'
 import { RandellComicsUser } from '../../models/user.model'
-import { ComicCategory } from '../../models/product-collection.model'
+import { ComicCategory } from '../../models/category.models'
 
 //Randell Comics Web App Configuration
 //apiKey is not a
@@ -114,25 +114,17 @@ export const addComicCategoriesAndDocuments = async (
   await batch.commit()
   console.log('collections uploaded')
 }
-export const getComicCollectionsAndDocuments = async () => {
+export const getComicCollectionsAndDocuments = async (): Promise<
+  DocumentData[]
+> => {
+  //Intentional to allow loading logo to show
+  await new Promise((r) => setTimeout(r, 2000))
   const collectionRef = collection(db, 'categories')
 
   const q = query(collectionRef)
 
   const querySnapshot = await getDocs(q)
-  const categoryMap = querySnapshot.docs.reduce(
-    (
-      acc: { [key: string]: ComicCategory },
-      docSnapshot: QueryDocumentSnapshot<DocumentData>
-    ) => {
-      const { title, items } = docSnapshot.data() as ComicCategory
-      acc[title.toLowerCase()] = { title, items }
-      return acc
-    },
-    {}
-  )
-
-  return categoryMap
+  return querySnapshot.docs.map((ds) => ds.data())
 }
 
 //Storage -- never got this working?
@@ -141,7 +133,6 @@ export const getImageUrl = (imageName: string, domElement: string) => {
   const imageRef = ref(storage, imageName)
   getDownloadURL(imageRef).then((url: string) => {
     // Or inserted into an <img> element
-    console.log('got here?')
     const imgs = document.getElementsByClassName('myimg')
     Array.from(imgs).forEach((e: any) => e.setAttribute('src', url))
   })

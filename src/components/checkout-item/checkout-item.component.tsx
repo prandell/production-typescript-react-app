@@ -1,6 +1,11 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../contexts/cart.context'
-import { ICartItem } from '../../models/cart-item.model'
+import React from 'react'
+import { ICartItem } from '../../models/cart.models'
+import {
+  clearProductFromCart,
+  addItemToCart,
+  removeItemFromCart
+} from '../../store/cart/cart.slice'
+import { useAppDispatch } from '../../store/hooks'
 import * as Styled from './checkout-item.styles'
 
 type CheckoutItemProps = {
@@ -8,14 +13,13 @@ type CheckoutItemProps = {
 }
 
 const CheckoutItem = ({ cartItem }: CheckoutItemProps): JSX.Element => {
-  const { removeItemFromCart, addItemToCart, removeProductFromCart } =
-    useContext(CartContext)
+  const dispatch = useAppDispatch()
   const { product, quantity } = cartItem
   const { name, id, price, imageUrl } = product
 
-  const clearHandler = () => removeProductFromCart(product)
-  const incrementHandler = () => addItemToCart(product)
-  const decrementHandler = () => removeItemFromCart(product)
+  const clearHandler = () => dispatch(clearProductFromCart(product))
+  const incrementHandler = () => dispatch(addItemToCart(product))
+  const decrementHandler = () => dispatch(removeItemFromCart(product))
 
   return (
     <Styled.CheckoutItemContainer key={id}>

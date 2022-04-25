@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { CategoryBanner } from '../../models/category.model'
+import { CategoryBanner } from '../../models/category.models'
 import DirectoryItem from '../directory-item/directory-item.component'
 import * as Styled from './category-menu.styles'
 
 const CategoryMenu = () => {
-  const [categories, setCategories] = useState<CategoryBanner[]>([])
+  const [categoryBanners, setCategoryBanners] = useState<CategoryBanner[]>([])
   useEffect(() => {
-    setCategories([
+    setCategoryBanners([
       {
         id: 1,
         title: 'New',
@@ -46,7 +46,7 @@ const CategoryMenu = () => {
   }, [])
   return (
     <Styled.CategoriesMenu>
-      {categories.map((c: CategoryBanner) => (
+      {categoryBanners.map((c: CategoryBanner) => (
         <DirectoryItem key={c.id} category={c} />
       ))}
     </Styled.CategoriesMenu>

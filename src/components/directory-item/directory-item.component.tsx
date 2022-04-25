@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router'
-import { CategoryBanner } from '../../models/category.model'
+import { CategoryBanner } from '../../models/category.models'
 import * as Styled from './directory-item.styles'
 
 type DirectoryItemProps = {

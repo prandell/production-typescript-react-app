@@ -1,16 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CartContext } from '../../contexts/cart.context'
-import { ICartItem } from '../../models/cart-item.model'
+import { ICartItem } from '../../models/cart.models'
+import { selectCartItems, setCartOpen } from '../../store/cart/cart.slice'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import Button from '../buttons/button/button.component'
 import CartItem from '../cart-item/cart-item.component'
 import * as Styled from './cart-dropdown.styles'
 
 const CartDropdown = (): JSX.Element => {
-  const { cartItems, setCartOpen } = useContext(CartContext)
+  const cartItems = useAppSelector(selectCartItems)
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const goToCheckoutHandler = () => {
-    setCartOpen(false)
+    dispatch(setCartOpen(false))
     navigate('/checkout')
   }
   return (
