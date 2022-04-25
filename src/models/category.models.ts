@@ -18,5 +18,6 @@ export type CategoryMap = {
 }
 
 export type CategoriesState = {
-  categoryMap: CategoryMap
+  categories: ComicCategory[]
+  status: 'loading' | 'idle' | 'failed'
 }

@@ -30,6 +30,7 @@ export const cartSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    // Use the PayloadAction type to declare the contents of `action.payload`
     setCartOpen: (state, action: PayloadAction<boolean>) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
@@ -44,7 +45,6 @@ export const cartSlice = createSlice({
       incrementCartItem(state.cartItems, action.payload, true)
       updateCartTotalAndCount(state)
     },
-    // Use the PayloadAction type to declare the contents of `action.payload`
     removeItemFromCart: (state, action: PayloadAction<Product>) => {
       incrementCartItem(state.cartItems, action.payload, false)
       updateCartTotalAndCount(state)
@@ -94,8 +94,9 @@ export const selectCartItems = (state: RootState): ICartItem[] =>
 // Here's an example of conditionally dispatching actions based on current state.
 export const roundDownIfClose = (): AppThunk => (dispatch, getState) => {
   const currentValue = selectCartTotal(getState())
-  if (currentValue % 1 <= 0.05) {
-    dispatch(incrementCartTotal(-(currentValue % 1)))
+  const centsAfterDollar = currentValue % 1
+  if (centsAfterDollar <= 0.05) {
+    dispatch(incrementCartTotal(-centsAfterDollar))
   }
 }
 

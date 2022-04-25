@@ -27,11 +27,7 @@ const NavigationBar = () => {
     <Fragment>
       <NavigationBarContainer>
         <LogoContainer to="/">
-          <Logo
-            className="logo-container-logo"
-            alt={'Randell Comics Logo'}
-            src={'randell-comics-filled.png'}
-          />
+          <Logo alt={'Randell Comics Logo'} src={'randell-comics-filled.png'} />
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>

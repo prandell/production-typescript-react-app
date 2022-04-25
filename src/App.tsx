@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './App.scss'
 import Home from './routes/home/home.component'
 import { Routes, Route } from 'react-router-dom'
@@ -6,16 +6,14 @@ import NavigationBar from './routes/navigation-bar/navigation-bar.component'
 import Authentication from './routes/authentication/authentication.component'
 import Shop from './routes/shop/shop.component'
 import Checkout from './routes/checkout/checkout.component'
-import { User } from 'firebase/auth'
-import {
-  onAuthStateChangedListener,
-  createUserDocumentFromAuth,
-  getComicCollectionsAndDocuments
-} from './utils/firebase/firebase.utils'
 import { useAppDispatch, useAppSelector } from './store/hooks'
 import { setCurrentUser } from './store/user/user.slice'
 import { selectTheme, setGlobalTheme } from './store/theme/theme.slice'
-import { setCategoriesMap } from './store/categories/categories.slice'
+import { User } from 'firebase/auth'
+import {
+  onAuthStateChangedListener,
+  createUserDocumentFromAuth
+} from './utils/firebase/firebase.utils'
 
 function App(): JSX.Element {
   const theme = useAppSelector(selectTheme)
@@ -42,15 +40,6 @@ function App(): JSX.Element {
     })
 
     return unsubscribe
-  }, [])
-
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getComicCollectionsAndDocuments()
-      dispatch(setCategoriesMap(categoryMap))
-    }
-
-    getCategoriesMap()
   }, [])
 
   return (

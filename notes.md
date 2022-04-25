@@ -150,3 +150,15 @@ export const cartReducer: Reducer<CartState, CartActions> = (
 - Redux has a global store that has a single dispatch that we must handle with our different reducers
 - `@reduxjs/toolkit` is the most up to date library for using redux in react
 - "slices" are essentially "slices" of the global state that hold their own reducers and actions
+- Any component using `useSelector` will have its selector fire after ANY store update, but it's up to the component as to whether it re-renders
+- `createSelector` from `selector` library allows us to use memoisation to avoid `useSelector` firing when it's input variable is unchanged. This is commonly used when we reduce over the result of an async function for different purposes which are in turn selected using a `useSelector` in components of your application
+
+## Redux Persist
+
+- Uses local storage to persist redux global state so that state values persist through refreshes.
+- Wraps all reducers and store in a persistance layer
+- You can specifically blacklist the reducers you wish to remain unpersisted (ie, users, as they conflict with firebases provided persistance)
+
+## Redux DevTools
+
+- Allows you to scroll through Redux events/actions that took place and see the effect they had on your application LIVE. Very cool
