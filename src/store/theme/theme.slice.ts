@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { User } from 'firebase/auth'
 import { ThemeState } from '../../models/theme.models'
 import { RootState } from '../store'
 

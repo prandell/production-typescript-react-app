@@ -17,8 +17,8 @@ const initialState: CategoriesState = {
   categories: [] as ComicCategory[]
 }
 
-export const getCategoriesAsync = createAsyncThunk(
-  'categories/getCategoriesAsync',
+export const fetchCategoriesAsync = createAsyncThunk(
+  'categories/fetchCategoriesAsync',
   async (): Promise<ComicCategory[]> => {
     // The value we return becomes the `fulfilled` action payload
     return (await getComicCollectionsAndDocuments()) as ComicCategory[]
@@ -38,14 +38,14 @@ export const categoriesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getCategoriesAsync.pending, (state) => {
+      .addCase(fetchCategoriesAsync.pending, (state) => {
         state.status = 'loading'
       })
-      .addCase(getCategoriesAsync.fulfilled, (state, action) => {
+      .addCase(fetchCategoriesAsync.fulfilled, (state, action) => {
         state.status = 'idle'
         state.categories = action.payload
       })
-      .addCase(getCategoriesAsync.rejected, (state) => {
+      .addCase(fetchCategoriesAsync.rejected, (state) => {
         state.status = 'failed'
       })
   }

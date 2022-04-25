@@ -23,7 +23,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  blacklist: ['user']
+  blacklist: ['user', 'categories']
 }
 
 const isDevelopment = process.env.NODE_ENV !== 'production'

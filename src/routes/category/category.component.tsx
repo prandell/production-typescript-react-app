@@ -26,20 +26,22 @@ const Category = () => {
   const { items, title } = category
   return (
     <>
-      {status !== 'idle' ? (
-        <LoadingLogo />
-      ) : (
-        <Styled.CategoryContainer>
-          <Styled.Title>{title}</Styled.Title>
-          <Styled.LineBreak />
+      <Styled.CategoryContainer>
+        <Styled.Title>{title}</Styled.Title>
+        <Styled.LineBreak />
+        {status !== 'idle' ? (
+          <>
+            <LoadingLogo />
+          </>
+        ) : (
           <Styled.ProductGrid>
             {items &&
               items.map((product: Product) => {
                 return <ProductCard key={product.id} product={product} />
               })}
           </Styled.ProductGrid>
-        </Styled.CategoryContainer>
-      )}
+        )}
+      </Styled.CategoryContainer>
     </>
   )
 }

@@ -1,8 +1,15 @@
 import React from 'react'
-import { Logo } from './loading-logo.styles'
+import { LoaderOverlay, LogoLoader } from './loading-logo.styles'
 
 const LoadingLogo = () => {
-  return <Logo alt={'Randell Comics Logo'} src={'randell-comics-filled.png'} />
+  return (
+    <LoaderOverlay>
+      <LogoLoader
+        alt={'Randell Comics Logo'}
+        src={'randell-comics-filled.png'}
+      />
+    </LoaderOverlay>
+  )
 }
 
 export default LoadingLogo

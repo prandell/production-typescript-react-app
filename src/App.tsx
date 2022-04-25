@@ -20,13 +20,7 @@ function App(): JSX.Element {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    const defaultDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches
     document.body.style.fontWeight = 'bold'
-    defaultDark
-      ? dispatch(setGlobalTheme('dark'))
-      : dispatch(setGlobalTheme('light'))
   }, [])
 
   useEffect(() => {

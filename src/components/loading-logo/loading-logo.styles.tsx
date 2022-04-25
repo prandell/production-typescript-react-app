@@ -1,6 +1,14 @@
 import styled from 'styled-components'
 
-export const Logo = styled.img`
+export const LoaderOverlay = styled.div`
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const LogoLoader = styled.img`
   width: 100px;
   display: block;
   margin-top: 200px;
