@@ -14,8 +14,10 @@ I used the following course to help create this application:
 
 The repository has several branches that represent different concepts/methodologies of I have picked up along the way
 
-- `Feature/context-api`: Uses context files and the Context API to manage global application state
+- `Feature/context-api`: Uses context files and the Context API to manage global application state (Not Merged)
 - `Feature/redux`: Uses ReduxToolkit and React Redux to manage global application state
+- `Feature/stripe`: Integrates Stripe and Netlify serverless functions into our checkout. (Not Merged)
+  > `@stripe/react-stripe-js` Does not currently support React@18. Monitor https://github.com/stripe/react-stripe-js/issues/273 for updates!
 
 ## Table of Contents
 
@@ -30,7 +32,7 @@ The repository has several branches that represent different concepts/methodolog
 
 ## Technology Used
 
-Notable technologies are `React@18`, `ReduxToolkit@1.8.1`, `Typescript`, `ReactRouter@6`, `Firebase@9`, `StyledComponents@5`
+Notable technologies are `React@18`, `ReduxToolkit@1.8.1`, `Typescript`, `ReactRouter@6`, `Firebase@9`, `ReactStripe`, `StyledComponents@5`
 
 - `react`: ^18.0.0
 - `typescript`: ^4.6.3
@@ -39,6 +41,8 @@ Notable technologies are `React@18`, `ReduxToolkit@1.8.1`, `Typescript`, `ReactR
 - `reduxjs/toolkit`: ^1.8.1
 - `redux-persist`: ^6.0.0
 - `redux-logger`: ^3.0.6
+- `stripe/react-stripe-js`: ^1.7.2
+- `stripe/stripe-js`: ^1.29.0
 - `firebase`: ^9.6.11,
 - `web-vitals`: ^2.1.4
 - `styled-components`: ^5.3.5
