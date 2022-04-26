@@ -1,6 +1,12 @@
 # Randell Comics
 
-This is a sample production-scale Comic Book shop website built using React@18 + ReduxToolkit@1.8 + Typescript
+Randell Comics is a scalable, modern Comic Book shop application built using React@18 + ReduxToolkit@1.8 + Typescript.
+
+The application uses [Firebase](https://firebase.google.com/) for authentication, database and image storage.
+
+The application is deployed using [Netlify](https://www.netlify.com/)
+
+Once [Stripe](https://stripe.com/au) and it's primary react library `stripe/react-stripe-js` support React@18 it will also feature Stripe payment integration (In a test environment)
 
 > <b>The website can be seen live at [here!](https://unrivaled-naiad-04eaf8.netlify.app/)</b>
 
@@ -14,8 +20,8 @@ I used the following course to help create this application:
 
 The repository has several branches that represent different concepts/methodologies of I have picked up along the way
 
-- `Feature/context-api`: Uses context files and the Context API to manage global application state (Not Merged)
-- `Feature/redux`: Uses ReduxToolkit and React Redux to manage global application state
+- `Feature/context-api`: Uses context files and the native React Context API to manage global application state (Not Merged)
+- `Feature/redux`: Uses ReduxToolkit and React Redux to manage global application state (In /main)
 - `Feature/stripe`: Integrates Stripe and Netlify serverless functions into our checkout. (Not Merged)
   > `@stripe/react-stripe-js` Does not currently support React@18. Monitor https://github.com/stripe/react-stripe-js/issues/273 for updates!
 
@@ -62,7 +68,16 @@ Notable technologies are `React@18`, `ReduxToolkit@1.8.1`, `Typescript`, `ReactR
 
 ## Setup
 
-To be continued
+Aside from installing all npm packages, you will need to create both a Netlify and Stripe account in order to test all the functionality of this application itself, such as being able to host the application and see mock payments in your Stripe console.
+
+You can install the Netlify CLI tool by running `brew install netlify-cli` or `npm install -g netlify-cli`
+
+You must also have an environment variable file such as `.env` that specifies the stripe keys from your Stripe account required to integrate stripe payments:
+
+```
+REACT_APP_STRIPE_PUBLISHABLE_KEY
+STRIPE_SECRET_KEY
+```
 
 ### Run
 
@@ -76,6 +91,8 @@ This will then launch the application within the native web browser on your comp
 
 ### Build
 
+This application is automatically built and deployed from the `main` branch using Netlify integration, however to manually build you can run:
+
 ```bash
 cd ./randell-comics
 
@@ -88,6 +105,7 @@ npm run build
 This simple application was made whilst following the Udemy course below
 
 - All Comic book covers are from Marvel or DC comics and are not my own personal artwork
+- [CSS Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [Complete React Developer in 2022](https://deloittedevelopment.udemy.com/course/complete-react-developer-zero-to-mastery/)
 - [Create React App](https://github.com/facebook/create-react-app).
 - [Redux Toolkit](https://redux-toolkit.js.org/)
