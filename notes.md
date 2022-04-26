@@ -192,3 +192,35 @@ export function* categoriesSaga() {
   yield all([call(onFetchCategories)]);
 }
 ```
+
+## GraphQL
+
+- An intemediary between the server and client that has a defined query language that allows you to ask for exactly what you want rather than every field an API may provide
+- GraphQL and Apollo should be used in place of Redux, not both.
+- GraphPlaygrounds are a good way of seeing how a GraphQL Schema can be queried. [Course playground](https://crwn-clothing.com/)
+- Sample query where a parameter of `{"id": "cjwuuj5bz000i0719rrtw5gqk"}` is defined. Corresponds to asking for a particular collection and getting its title, id, and item names. It then asks for all collections as a seperate return value inside the same query
+
+```
+query($id:ID!) {
+  collection(id: $id) {
+    id
+    title
+    items {
+      name
+    }
+  }
+  collections {
+    id
+    title
+    items {
+      name
+    }
+  }
+}
+```
+
+## Apollo vs Redux
+
+- Both aim to be a single source of truth for application state
+- You can still utilise Context API in combination with global application state managers
+- Backend must have setup GraphQL which is a bit of work
