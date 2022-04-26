@@ -11,6 +11,7 @@ import themeReducer from './theme/theme.slice'
 import categoriesReducer from './categories/categories.slice'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { setupListeners } from '@reduxjs/toolkit/dist/query'
 
 const reducers = combineReducers({
   user: userReducer,
@@ -38,6 +39,8 @@ export const store = configureStore({
       : getDefaultMiddleware({ serializableCheck: false }),
   devTools: isDevelopment
 })
+
+setupListeners(store.dispatch)
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>

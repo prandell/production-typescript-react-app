@@ -7,13 +7,8 @@ import Authentication from './routes/authentication/authentication.component'
 import Shop from './routes/shop/shop.component'
 import Checkout from './routes/checkout/checkout.component'
 import { useAppDispatch, useAppSelector } from './store/hooks'
-import { setCurrentUser } from './store/user/user.slice'
 import { selectTheme, setGlobalTheme } from './store/theme/theme.slice'
-import { User } from 'firebase/auth'
-import {
-  onAuthStateChangedListener,
-  createUserDocumentFromAuth
-} from './utils/firebase/firebase.utils'
+import { fetchUserSession } from './store/user/user.api'
 
 function App(): JSX.Element {
   const theme = useAppSelector(selectTheme)
@@ -29,16 +24,7 @@ function App(): JSX.Element {
   }, [])
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user: User | null) => {
-      if (user) {
-        createUserDocumentFromAuth(user)
-        dispatch(setCurrentUser(user))
-      } else {
-        dispatch(setCurrentUser({} as User))
-      }
-    })
-
-    return unsubscribe
+    dispatch(fetchUserSession())
   }, [])
 
   return (

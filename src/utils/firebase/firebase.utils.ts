@@ -73,6 +73,19 @@ export const signOutAuthUser = async (): Promise<void> => {
 export const onAuthStateChangedListener = (callback: NextOrObserver<User>) =>
   onAuthStateChanged(auth, callback)
 
+export const getCurrentUser = (): Promise<User | null> => {
+  return new Promise((resolve, reject): void => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth: User | null) => {
+        unsubscribe()
+        resolve(userAuth)
+      },
+      reject
+    )
+  })
+}
+
 // Database
 export const db: Firestore = getFirestore()
 //create a user in our database whenever that user uses Google Auth to sign in

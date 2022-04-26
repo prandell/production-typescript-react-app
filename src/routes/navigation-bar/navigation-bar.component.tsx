@@ -5,9 +5,9 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 import CartIcon from '../../components/cart-icon/cart-icon.component'
 import ThemeToggle from '../../components/theme-toggle/theme-toggle.component'
 import { selectCartOpen } from '../../store/cart/cart.slice'
-import { useAppSelector } from '../../store/hooks'
-import { selectCurrentUser } from '../../store/user/user.slice'
-import { signOutAuthUser } from '../../utils/firebase/firebase.utils'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { signOutUser } from '../../store/user/user.api'
+import { selectLoginStatus } from '../../store/user/user.slice'
 import {
   NavigationBarContainer,
   NavLinks,
@@ -17,11 +17,12 @@ import {
 } from './navigation-bar.styles'
 
 const NavigationBar = () => {
-  const currentUser = useAppSelector(selectCurrentUser)
+  const dispatch = useAppDispatch()
+  const loginStatus = useAppSelector(selectLoginStatus)
   const cartOpen = useAppSelector(selectCartOpen)
 
-  const signOutHandler = async (): Promise<void> => {
-    await signOutAuthUser()
+  const signOutHandler = (): void => {
+    dispatch(signOutUser())
   }
   return (
     <Fragment>
@@ -31,7 +32,7 @@ const NavigationBar = () => {
         </LogoContainer>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
-          {currentUser.email ? (
+          {loginStatus === 'authenticated' ? (
             <NavLink as="span" onClick={signOutHandler}>
               SIGN OUT
             </NavLink>

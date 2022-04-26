@@ -162,3 +162,33 @@ export const cartReducer: Reducer<CartState, CartActions> = (
 ## Redux DevTools
 
 - Allows you to scroll through Redux events/actions that took place and see the effect they had on your application LIVE. Very cool
+
+## Redux Saga
+
+- Uses generator functions to handle asynchronous fetch calls.
+- Relies on the callbacks/state of the generator function to determine status (for things like loading spinners)
+- You can `yield` multiple times within a generator function, but the status will remain as `false` until they `return`
+- `put` is like the saga version of dispatch
+- Categories Saga looks like:
+
+```
+export function* fetchCategoriesAsync() {
+  try {
+    const categoriesArray = yield call(getCategoriesAndDocuments, 'categories');
+    yield put(fetchCategoriesSuccess(categoriesArray));
+  } catch (error) {
+    yield put(fetchCategoriesFailure(error));
+  }
+}
+
+export function* onFetchCategories() {
+  yield takeLatest(
+    CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START,
+    fetchCategoriesAsync
+  );
+}
+
+export function* categoriesSaga() {
+  yield all([call(onFetchCategories)]);
+}
+```
