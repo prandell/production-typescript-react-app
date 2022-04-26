@@ -4,6 +4,7 @@ import * as Styled from './button.styles'
 export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children: any
   inverted: boolean
+  isLoading?: boolean
 }
 
 const getButton = (inverted: boolean) => {
@@ -13,10 +14,23 @@ const getButton = (inverted: boolean) => {
 const Button = ({
   children,
   inverted,
+  isLoading = false,
   ...otherProps
 }: ButtonProps): JSX.Element => {
   const CustomButton = getButton(inverted)
-  return <CustomButton {...otherProps}>{children}</CustomButton>
+  return (
+    <CustomButton disabled={isLoading} {...otherProps}>
+      {isLoading ? (
+        inverted ? (
+          <Styled.ButtonLoader />
+        ) : (
+          <Styled.ButtonLoaderInverted />
+        )
+      ) : (
+        children
+      )}
+    </CustomButton>
+  )
 }
 
 export default Button

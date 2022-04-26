@@ -1,14 +1,14 @@
 import React from 'react'
-import { LoaderOverlay, LogoLoader } from './loading-logo.styles'
+import * as Styled from './loading-logo.styles'
 
 const LoadingLogo = () => {
   return (
-    <LoaderOverlay>
-      <LogoLoader
+    <Styled.LoaderOverlay>
+      <Styled.LogoLoader
         alt={'Randell Comics Logo'}
         src={'randell-comics-filled.png'}
       />
-    </LoaderOverlay>
+    </Styled.LoaderOverlay>
   )
 }
 

@@ -9,6 +9,8 @@ import { store } from './store/store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import LoadingLogo from './components/loading-logo/loading-logo.component'
+import { Elements } from '@stripe/react-stripe-js'
+import { stripePromise } from './utils/stripe/stripe.utils'
 
 let persistor = persistStore(store)
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
@@ -17,7 +19,9 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={<LoadingLogo />} persistor={persistor}>
         <BrowserRouter>
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
         </BrowserRouter>
       </PersistGate>
     </Provider>

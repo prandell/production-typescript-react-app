@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { SpinnerContainer } from '../../spinner/spinner.styles'
 const themeWhite = '#e7dfdd'
 export const Button = styled.button`
   min-width: 165px;
@@ -35,4 +36,19 @@ export const InvertedButton = styled(Button)`
     color: ${themeWhite};
     border: none;
   }
+`
+export const ButtonLoader = styled(SpinnerContainer)`
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  border: 3px solid rgba(195, 195, 195, 0.6);
+  border-top-color: var(--accent-colour);
+`
+
+export const ButtonLoaderInverted = styled(SpinnerContainer)`
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  border: 3px solid var(--accent-colour);
+  border-top-color: rgba(195, 195, 195, 0.6);
 `

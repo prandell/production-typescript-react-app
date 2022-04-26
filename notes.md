@@ -192,3 +192,9 @@ export function* categoriesSaga() {
   yield all([call(onFetchCategories)]);
 }
 ```
+
+## Stripe
+
+- Stripe is a popular payment handling library that allows you to accept payments in your production application
+  > `react-stripe-js` library is currently not supported in React@18. Monitor https://github.com/stripe/react-stripe-js/issues/273 for updates
+- We can also leverage Netlify's serverless functions to act as our backend for payment handling

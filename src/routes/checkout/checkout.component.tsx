@@ -1,5 +1,6 @@
 import React from 'react'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
+import PaymentForm from '../../components/payment-form/payment-form.component'
 import { ICartItem } from '../../models/cart.models'
 import { selectCartItems, selectCartTotal } from '../../store/cart/cart.slice'
 import { useAppSelector } from '../../store/hooks'
@@ -31,6 +32,7 @@ const Checkout = () => {
         <CheckoutItem key={i.product.id} cartItem={i} />
       ))}
       <Styled.Total>{`Total: $${cartTotal}`}</Styled.Total>
+      <PaymentForm />
     </Styled.CheckoutContainer>
   )
 }

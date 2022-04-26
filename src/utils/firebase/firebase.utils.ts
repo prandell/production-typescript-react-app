@@ -24,8 +24,7 @@ import {
   collection,
   writeBatch,
   query,
-  getDocs,
-  QueryDocumentSnapshot
+  getDocs
 } from 'firebase/firestore'
 import { RandellComicsUser } from '../../models/user.model'
 import { ComicCategory } from '../../models/category.models'
