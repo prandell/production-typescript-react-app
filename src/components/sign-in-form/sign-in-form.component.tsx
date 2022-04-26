@@ -1,9 +1,9 @@
-import { AuthErrorCodes } from 'firebase/auth'
 import React, { ChangeEvent, FormEvent, useState } from 'react'
+import { useAppDispatch } from '../../store/hooks'
 import {
-  signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup
-} from '../../utils/firebase/firebase.utils'
+  signInUserWithEmailAndPassword,
+  signInUserWithGoogle
+} from '../../store/user/user.api'
 import Button from '../buttons/button/button.component'
 import GoogleButton from '../buttons/google-button/google-button.component'
 import FormInput from '../form-input/form-input.component'
@@ -20,6 +20,7 @@ const defaultFormInputs = {
 }
 
 const SignInForm = (): JSX.Element => {
+  const dispatch = useAppDispatch()
   const [formInputs, setFormInputs] =
     useState<SignInFormInputs>(defaultFormInputs)
   const { email, password } = formInputs
@@ -33,29 +34,14 @@ const SignInForm = (): JSX.Element => {
     setFormInputs({ ...formInputs, [name]: value })
   }
 
-  const signInWithGoogle = async (): Promise<void> => {
-    await signInWithGooglePopup()
+  const signInWithGoogle = (): void => {
+    dispatch(signInUserWithGoogle())
   }
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
-    try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password)
-      if (response) {
-        resetFormInputs()
-      }
-    } catch (error: any) {
-      switch (error.code) {
-        case AuthErrorCodes.INVALID_PASSWORD:
-          alert('Password is incorrect. Please try again.')
-          break
-        case AuthErrorCodes.USER_DELETED:
-          alert('No User with this email exists. Please sign up.')
-          break
-        default:
-          console.log(`Error while signing in. Message: ${error}`)
-      }
-    }
+    dispatch(signInUserWithEmailAndPassword({ email, password }))
+    resetFormInputs()
   }
 
   return (

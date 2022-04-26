@@ -9,4 +9,5 @@ export type RandellComicsUser = {
 
 export interface UserState {
   currentUser: User
+  loginStatus: 'loggedOut' | 'loading' | 'authenticated'
 }

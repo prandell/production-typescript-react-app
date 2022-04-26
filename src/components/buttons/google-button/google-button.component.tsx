@@ -2,7 +2,7 @@ import React from 'react'
 import './google-button.styles.scss'
 
 type GoogleButtonProps = {
-  clickHandler: () => Promise<void>
+  clickHandler: () => void
 }
 
 const GoogleButton = ({ clickHandler }: GoogleButtonProps): JSX.Element => {

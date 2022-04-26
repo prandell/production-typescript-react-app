@@ -11,15 +11,13 @@ import themeReducer from './theme/theme.slice'
 import categoriesReducer from './categories/categories.slice'
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { pokemonApi } from './pokemon/pokemon.api.slice'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
 
 const reducers = combineReducers({
   user: userReducer,
   cart: cartReducer,
   theme: themeReducer,
-  categories: categoriesReducer,
-  [pokemonApi.reducerPath]: pokemonApi.reducer
+  categories: categoriesReducer
 })
 
 const persistConfig = {
@@ -37,12 +35,8 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     isDevelopment
-      ? getDefaultMiddleware({ serializableCheck: false })
-          .concat(pokemonApi.middleware)
-          .concat(logger)
-      : getDefaultMiddleware({ serializableCheck: false }).concat(
-          pokemonApi.middleware
-        ),
+      ? getDefaultMiddleware({ serializableCheck: false }).concat(logger)
+      : getDefaultMiddleware({ serializableCheck: false }),
   devTools: isDevelopment
 })
 

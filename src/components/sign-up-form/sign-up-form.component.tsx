@@ -1,9 +1,6 @@
-import { AuthErrorCodes } from 'firebase/auth'
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth
-} from '../../utils/firebase/firebase.utils'
+import { useAppDispatch } from '../../store/hooks'
+import { signUpUserWithEmailAndPassword } from '../../store/user/user.api'
 import Button from '../buttons/button/button.component'
 import FormInput from '../form-input/form-input.component'
 import * as Styled from './sign-up-form.styles'
@@ -23,6 +20,7 @@ const defaultFormInputs = {
 }
 
 const SignUpForm = (): JSX.Element => {
+  const dispatch = useAppDispatch()
   const [formInputs, setFormInputs] =
     useState<SignUpFormInputs>(defaultFormInputs)
   const { displayName, email, password, confirmPassword } = formInputs
@@ -43,24 +41,8 @@ const SignUpForm = (): JSX.Element => {
       alert('passwords do not match')
       return
     }
-    try {
-      const response = await createAuthUserWithEmailAndPassword(email, password)
-      if (!response) {
-        return
-      }
-
-      await createUserDocumentFromAuth(response.user, { displayName })
-      resetFormInputs()
-      // Redirect for successful sign in/create
-    } catch (error: any) {
-      if (error.code === AuthErrorCodes.EMAIL_EXISTS) {
-        alert('Account with that email already exists. Please sign in')
-      } else {
-        console.log(
-          `Error encountered while creating a user. Message: ${error}`
-        )
-      }
-    }
+    dispatch(signUpUserWithEmailAndPassword({ email, password, displayName }))
+    resetFormInputs()
   }
 
   return (
