@@ -1,10 +1,11 @@
 import React, { ReactElement, useEffect, lazy, Suspense } from 'react'
-import './App.scss'
+// import './App.scss'
 import { Routes, Route } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from './store/hooks'
 import { selectTheme, setGlobalTheme } from './store/theme/theme.slice'
 import { LogoLoader } from './components/loading-logo/loading-logo.styles'
 import { fetchUserSession } from './store/user/user.api'
+import { GlobalStyle } from './global.styles'
 
 const Checkout = lazy(() => import('./routes/checkout/checkout.component'))
 const Home = lazy(() => import('./routes/home/home.component'))
@@ -35,6 +36,7 @@ function App(): ReactElement {
 
   return (
     <Suspense fallback={<LogoLoader />}>
+      <GlobalStyle />
       <div className="app" data-theme={theme}>
         <Routes>
           <Route path="/" element={<NavigationBar />}>

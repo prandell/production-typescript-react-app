@@ -10,11 +10,11 @@ type DirectoryItemProps = {
 const DirectoryItem: FC<DirectoryItemProps> = ({
   category
 }: DirectoryItemProps): ReactElement => {
-  const { title, subtitle, imageUrl, route } = category
+  const { title, subtitle, imageUrl, large, route } = category
   const navigate = useNavigate()
   const handleOnClick = useCallback(() => navigate(route), [])
   return (
-    <Styled.DirectoryItemContainer onClick={handleOnClick}>
+    <Styled.DirectoryItemContainer large={large} onClick={handleOnClick}>
       <Styled.BackgroundImage imageUrl={imageUrl} />
       <Styled.DirectoryBodyContainer>
         <h2>{title}</h2>

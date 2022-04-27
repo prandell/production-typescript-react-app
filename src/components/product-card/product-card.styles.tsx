@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Button from '../buttons/button/button.component'
 
 export const ProductCardImage = styled.img`
   width: 100%;
@@ -10,20 +11,12 @@ export const ProductCardImage = styled.img`
 
 export const ProductCardContainer = styled.div`
   text-align: left;
-  width: 300px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   height: 100%;
   align-items: center;
   position: relative;
-
-  button {
-    width: 80%;
-    opacity: 0.7;
-    position: absolute;
-    top: 70%;
-    display: none;
-  }
 
   &:hover {
     ${ProductCardImage} {
@@ -34,6 +27,32 @@ export const ProductCardContainer = styled.div`
       opacity: 0.85;
       display: flex;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    &:hover {
+      .image {
+        opacity: unset;
+      }
+      button {
+        opacity: unset;
+      }
+    }
+  }
+`
+
+export const AddButton = styled(Button)`
+  width: 80%;
+  opacity: 0.7;
+  position: absolute;
+  top: 255px;
+  display: none;
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
   }
 `
 

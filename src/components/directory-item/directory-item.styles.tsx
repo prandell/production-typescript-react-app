@@ -23,6 +23,9 @@ export const DirectoryBodyContainer = styled.div`
     font-weight: lighter;
     font-size: 16px;
     color: var(--secondary-colour);
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
   }
 `
 
@@ -38,9 +41,9 @@ export const BackgroundImage = styled.div<ImageProps>`
   background-image: ${(p: ImageProps) => `url(${p.imageUrl})`};
 `
 
-export const DirectoryItemContainer = styled.div`
+export const DirectoryItemContainer = styled.div<{ large: boolean }>`
   min-width: 30%;
-  height: 240px;
+  height: ${({ large }) => (large ? '320px' : '240px')};
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -71,5 +74,10 @@ export const DirectoryItemContainer = styled.div`
 
   &:last-child {
     margin-left: 7.5px;
+  }
+
+  @media screen and (max-width: 800px) {
+    height: 200px;
+    min-width: 40%;
   }
 `

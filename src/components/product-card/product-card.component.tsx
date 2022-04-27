@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from 'react'
 import { Product } from '../../models/product.model'
 import { addItemToCart } from '../../store/cart/cart.slice'
 import { useAppDispatch } from '../../store/hooks'
-import Button from '../buttons/button/button.component'
 import * as Styled from './product-card.styles'
 
 type ProductCardProps = {
@@ -32,9 +31,9 @@ const ProductCard: FC<ProductCardProps> = ({
         <Styled.Name>{name}</Styled.Name>
         <Styled.Price>{`$${price}`}</Styled.Price>
       </Styled.Footer>
-      <Button onClick={addProductToCart} inverted={true}>
+      <Styled.AddButton onClick={addProductToCart} inverted={true}>
         Add to Cart
-      </Button>
+      </Styled.AddButton>
     </Styled.ProductCardContainer>
   )
 }
