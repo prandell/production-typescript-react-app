@@ -1,6 +1,6 @@
 # Randell Comics
 
-Randell Comics is a scalable, modern Comic Book shop application built using React@18 + ReduxToolkit@1.8 + Typescript.
+Randell Comics is a scalable, responsive, modern Comic Book shop application built using React@18 + ReduxToolkit@1.8 + Typescript.
 
 The application uses [Firebase](https://firebase.google.com/) for authentication, database and image storage.
 
