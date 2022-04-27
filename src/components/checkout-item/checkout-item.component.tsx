@@ -27,17 +27,17 @@ const CheckoutItem: FC<CheckoutItemProps> = memo(
         <Styled.ImageContainer>
           <Styled.Image alt={name} src={imageUrl}></Styled.Image>
         </Styled.ImageContainer>
-        <Styled.CheckoutItemDetails>{name}</Styled.CheckoutItemDetails>
+        <Styled.CheckoutItemName>{name}</Styled.CheckoutItemName>
         <Styled.QuantityContainer>
-          <Styled.QuantityArrow onClick={decrementHandler}>
+          <Styled.QuantityArrowDown onClick={decrementHandler}>
             &#10094;
-          </Styled.QuantityArrow>
+          </Styled.QuantityArrowDown>
           <Styled.QuantityValue>{quantity}</Styled.QuantityValue>
-          <Styled.QuantityArrow onClick={incrementHandler}>
+          <Styled.QuantityArrowUp onClick={incrementHandler}>
             &#10095;
-          </Styled.QuantityArrow>
+          </Styled.QuantityArrowUp>
         </Styled.QuantityContainer>
-        <Styled.CheckoutItemDetails>${price}</Styled.CheckoutItemDetails>
+        <Styled.CheckoutItemPrice>${price}</Styled.CheckoutItemPrice>
         <Styled.RemoveButton onClick={clearHandler}>
           &#10005;
         </Styled.RemoveButton>

@@ -23,22 +23,46 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
 `
-export const CheckoutItemDetails = styled.span`
+export const CheckoutItemName = styled.span`
   width: 23%;
   padding-right: 10px;
 
-  @media screen and (max-width: 800px) {
-    width: 22%;
+  @media screen and (max-width: 600px) {
+    width: 32%;
+  }
+`
+
+export const CheckoutItemPrice = styled.span`
+  width: 23%;
+  padding-right: 10px;
+
+  @media screen and (max-width: 600px) {
+    width: 12%;
   }
 `
 export const QuantityContainer = styled.span`
   display: flex;
   width: 23%;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
-export const QuantityArrow = styled.div`
+const QuantityArrow = styled.div`
   color: var(--accent-colour);
   cursor: pointer;
+`
+
+export const QuantityArrowUp = styled(QuantityArrow)`
+  @media screen and (max-width: 600px) {
+    transform: translateY(-50px) rotate(-90deg);
+  }
+`
+export const QuantityArrowDown = styled(QuantityArrow)`
+  @media screen and (max-width: 600px) {
+    transform: translateY(50px) rotate(-90deg);
+  }
 `
 
 export const QuantityValue = styled.span`
