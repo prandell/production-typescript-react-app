@@ -15,8 +15,14 @@ export const DirectoryBodyContainer = styled.div`
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
+    max-width: 100%;
     font-size: 22px;
     color: var(--secondary-colour);
+  }
+
+  @media screen and (max-width: 1200px) {
+    height: 60px;
+    padding: 10px;
   }
 
   p {

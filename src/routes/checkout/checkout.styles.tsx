@@ -21,6 +21,9 @@ export const CheckoutHeader = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `
 
 export const Total = styled.span`
