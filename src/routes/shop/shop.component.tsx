@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { FC, useEffect } from 'react'
 import { Route, Routes } from 'react-router'
 import { fetchCategoriesAsync } from '../../store/categories/categories.slice'
 import { useAppDispatch } from '../../store/hooks'
 import CategoriesPreview from '../categories-preview/categories-preview.component'
 import Category from '../category/category.component'
 
-const Shop = () => {
+const Shop: FC = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchCategoriesAsync())

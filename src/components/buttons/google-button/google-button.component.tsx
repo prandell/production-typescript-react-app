@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import './google-button.styles.scss'
 
 type GoogleButtonProps = {
   clickHandler: () => void
 }
 
-const GoogleButton = ({ clickHandler }: GoogleButtonProps): JSX.Element => {
+const GoogleButton = ({ clickHandler }: GoogleButtonProps): ReactElement => {
   return (
     <div className="google-btn" onClick={clickHandler}>
       <div className="google-icon-wrapper">

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import CategoryMenu from '../../components/category-menu/category-menu.component'
 import * as Styled from './home.styles'
 
-function Home(): JSX.Element {
+const Home = (): ReactElement => {
   return (
     <div className="main-container">
       <Styled.ShopTitle>

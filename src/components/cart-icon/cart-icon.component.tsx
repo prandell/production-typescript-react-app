@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React, { MouseEventHandler, ReactElement } from 'react'
 import {
   selectCartCount,
   selectCartOpen,
@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import './cart-icon.styles'
 import * as Styled from './cart-icon.styles'
 
-const CartIcon = (): JSX.Element => {
+const CartIcon = (): ReactElement => {
   const dispatch = useAppDispatch()
   const cartOpen = useAppSelector(selectCartOpen)
   const cartCount = useAppSelector(selectCartCount)

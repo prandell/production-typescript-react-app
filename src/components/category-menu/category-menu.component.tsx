@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { CategoryBanner } from '../../models/category.models'
 import DirectoryItem from '../directory-item/directory-item.component'
 import * as Styled from './category-menu.styles'
 
-const CategoryMenu = () => {
+const CategoryMenu: FC = () => {
   const [categoryBanners, setCategoryBanners] = useState<CategoryBanner[]>([])
   useEffect(() => {
     setCategoryBanners([

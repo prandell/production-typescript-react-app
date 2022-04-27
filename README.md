@@ -18,6 +18,8 @@ I used the following course to help create this application:
 
 - [Complete React Developer in 2022](https://deloittedevelopment.udemy.com/course/complete-react-developer-zero-to-mastery/)
 
+I have also taken notes for all the concepts I learnt or implemented in this project which you can find in `notes.md`
+
 The repository has several branches that represent different concepts/methodologies of I have picked up along the way
 
 - `Feature/context-api`: Uses context files and the native React Context API to manage global application state (Not Merged)

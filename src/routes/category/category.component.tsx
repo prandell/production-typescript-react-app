@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import LoadingLogo from '../../components/loading-logo/loading-logo.component'
 import ProductCard from '../../components/product-card/product-card.component'
@@ -12,7 +12,7 @@ import { useAppSelector } from '../../store/hooks'
 import { capitaliseFirstLetterOfEachWord } from '../../utils/helpers.utils'
 import * as Styled from './category.styles'
 
-const Category = () => {
+const Category: FC = () => {
   const { categoryName } = useParams()
   const status = useAppSelector(selectCategoriesStatus)
   const categoryMap = useAppSelector(selectCategoryMap)

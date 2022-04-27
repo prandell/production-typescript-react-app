@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, FC, ReactElement } from 'react'
 import * as Styled from './form-input.styles'
 
 type FormInputProps = {
@@ -10,14 +10,14 @@ type FormInputProps = {
   type: string
 }
 
-const FormInput = ({
+const FormInput: FC<FormInputProps> = ({
   label,
   required,
   changeHandler,
   name,
   type,
   value
-}: FormInputProps): JSX.Element => {
+}: FormInputProps): ReactElement => {
   return (
     <Styled.FormInputGroup>
       <Styled.FormInput

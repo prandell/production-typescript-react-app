@@ -224,3 +224,10 @@ query($id:ID!) {
 - Both aim to be a single source of truth for application state
 - You can still utilise Context API in combination with global application state managers
 - Backend must have setup GraphQL which is a bit of work
+
+## Optimisation
+
+- `useCallback` memoizes an entire function (including arguments) and only reruns the function if one of the dependencies specified have been altered
+- `useMemo` is similar to useCallback except it stores the return value of the function you want to execute
+- you can wrap an entire component in `memo` to prevent it from being re-rendered. This can be used when an array being mapped over is being added to, but the existing elements are being re-rendered every time
+- Code Splitting allows you to split your bundled JS code at the route level so that we only download the JS we need for each route once we visit it

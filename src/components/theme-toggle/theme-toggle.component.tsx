@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { selectTheme, setGlobalTheme } from '../../store/theme/theme.slice'
 import * as Styled from './theme-toggle.styles'
 
-const ThemeToggle = (): JSX.Element => {
+const ThemeToggle = (): ReactElement => {
   const dispatch = useAppDispatch()
   const theme = useAppSelector(selectTheme)
 

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react'
 import { useAppDispatch } from '../../store/hooks'
 import { signUpUserWithEmailAndPassword } from '../../store/user/user.api'
 import Button from '../buttons/button/button.component'
@@ -19,7 +19,7 @@ const defaultFormInputs = {
   confirmPassword: ''
 }
 
-const SignUpForm = (): JSX.Element => {
+const SignUpForm = (): ReactElement => {
   const dispatch = useAppDispatch()
   const [formInputs, setFormInputs] =
     useState<SignUpFormInputs>(defaultFormInputs)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import CategoryPreview from '../../components/category-preview/category-preview.component'
 import LoadingLogo from '../../components/loading-logo/loading-logo.component'
 import {
@@ -7,7 +7,7 @@ import {
 } from '../../store/categories/categories.slice'
 import { useAppSelector } from '../../store/hooks'
 
-const CategoriesPreview = () => {
+const CategoriesPreview: FC = () => {
   const categoryMap = useAppSelector(selectCategoryMap)
   const status = useAppSelector(selectCategoriesStatus)
   const first = 'new'

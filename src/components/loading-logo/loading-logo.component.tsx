@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { LoaderOverlay, LogoLoader } from './loading-logo.styles'
 
-const LoadingLogo = () => {
+const LoadingLogo: FC = () => {
   return (
     <LoaderOverlay>
       <LogoLoader

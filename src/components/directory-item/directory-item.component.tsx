@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { FC, ReactElement, useCallback } from 'react'
 import { useNavigate } from 'react-router'
 import { CategoryBanner } from '../../models/category.models'
 import * as Styled from './directory-item.styles'
@@ -7,10 +7,12 @@ type DirectoryItemProps = {
   category: CategoryBanner
 }
 
-const DirectoryItem = ({ category }: DirectoryItemProps): JSX.Element => {
+const DirectoryItem: FC<DirectoryItemProps> = ({
+  category
+}: DirectoryItemProps): ReactElement => {
   const { title, subtitle, imageUrl, route } = category
   const navigate = useNavigate()
-  const handleOnClick = useCallback(() => navigate(route), [navigate, route])
+  const handleOnClick = useCallback(() => navigate(route), [])
   return (
     <Styled.DirectoryItemContainer onClick={handleOnClick}>
       <Styled.BackgroundImage imageUrl={imageUrl} />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import { ComicCategory } from '../../models/category.models'
 import { Product } from '../../models/product.model'
@@ -9,7 +9,9 @@ type CategoryPreviewProps = {
   category: ComicCategory
 }
 
-const CategoryPreview = ({ category }: CategoryPreviewProps): JSX.Element => {
+const CategoryPreview: FC<CategoryPreviewProps> = ({
+  category
+}: CategoryPreviewProps): ReactElement => {
   const { title, items } = category
   return (
     <Styled.CategoryPreviewContainer>

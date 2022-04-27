@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ICartItem } from '../../models/cart.models'
 import { selectCartItems, setCartOpen } from '../../store/cart/cart.slice'
@@ -7,14 +7,14 @@ import Button from '../buttons/button/button.component'
 import CartItem from '../cart-item/cart-item.component'
 import * as Styled from './cart-dropdown.styles'
 
-const CartDropdown = (): JSX.Element => {
+const CartDropdown = (): ReactElement => {
   const cartItems = useAppSelector(selectCartItems)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const goToCheckoutHandler = () => {
+  const goToCheckoutHandler = useCallback(() => {
     dispatch(setCartOpen(false))
     navigate('/checkout')
-  }
+  }, [])
   return (
     <Styled.CartDropdownContainer>
       <Styled.CartItems>

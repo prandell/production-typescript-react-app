@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC, ReactElement } from 'react'
 import { Product } from '../../models/product.model'
 import { addItemToCart } from '../../store/cart/cart.slice'
 import { useAppDispatch } from '../../store/hooks'
@@ -9,7 +9,9 @@ type ProductCardProps = {
   product: Product
 }
 
-const ProductCard = ({ product }: ProductCardProps): JSX.Element => {
+const ProductCard: FC<ProductCardProps> = ({
+  product
+}: ProductCardProps): ReactElement => {
   const { name, imageUrl, price } = product
   const dispatch = useAppDispatch()
 

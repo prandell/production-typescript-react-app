@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Fragment } from 'react'
 import { Outlet } from 'react-router-dom'
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component'
@@ -16,7 +16,7 @@ import {
   NavLink
 } from './navigation-bar.styles'
 
-const NavigationBar = () => {
+const NavigationBar: FC = () => {
   const dispatch = useAppDispatch()
   const loginStatus = useAppSelector(selectLoginStatus)
   const cartOpen = useAppSelector(selectCartOpen)

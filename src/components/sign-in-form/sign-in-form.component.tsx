@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import React, { ChangeEvent, FormEvent, ReactElement, useState } from 'react'
 import { useAppDispatch } from '../../store/hooks'
 import {
   signInUserWithEmailAndPassword,
@@ -19,7 +19,7 @@ const defaultFormInputs = {
   password: ''
 }
 
-const SignInForm = (): JSX.Element => {
+const SignInForm = (): ReactElement => {
   const dispatch = useAppDispatch()
   const [formInputs, setFormInputs] =
     useState<SignInFormInputs>(defaultFormInputs)
