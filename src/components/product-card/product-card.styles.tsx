@@ -46,13 +46,17 @@ export const AddButton = styled(Button)`
   width: 80%;
   opacity: 0.7;
   position: absolute;
-  top: 75%;
+  top: 70%;
   display: none;
   @media screen and (max-width: 800px) {
     display: block;
     opacity: 0.9;
     min-width: unset;
     padding: 0 10px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
   }
 `
 
