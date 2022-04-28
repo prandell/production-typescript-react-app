@@ -11,7 +11,8 @@ const Directory: FC = () => {
         id: 1,
         title: 'New',
         subtitle: 'Shop the latest releases',
-        imageUrl: '/category-covers/new-cover.png',
+        imageUrl:
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/new-cover.png',
         large: false,
         route: 'shop/new'
       },
@@ -19,7 +20,8 @@ const Directory: FC = () => {
         id: 2,
         title: 'Spider-Man',
         subtitle: "Everyone's favourite web-slinger",
-        imageUrl: '/category-covers/spiderman-cover.png',
+        imageUrl:
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/spiderman-cover.png',
         large: false,
         route: 'shop/spider-man'
       },
@@ -27,7 +29,8 @@ const Directory: FC = () => {
         id: 3,
         title: 'Batman',
         subtitle: 'The Caped Crusader',
-        imageUrl: '/category-covers/batman-cover.jpeg',
+        imageUrl:
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/batman-cover.jpeg',
         large: false,
         route: 'shop/batman'
       },
@@ -35,7 +38,8 @@ const Directory: FC = () => {
         id: 4,
         title: 'DC',
         subtitle: 'Shop all DC Comics',
-        imageUrl: '/category-covers/dc-cover.jpeg',
+        imageUrl:
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/dc-cover.jpeg',
         large: true,
         route: 'shop/dc'
       },
@@ -43,7 +47,8 @@ const Directory: FC = () => {
         id: 5,
         title: 'Marvel',
         subtitle: 'Shop all Marvel Comics',
-        imageUrl: '/category-covers/marvel-cover.png',
+        imageUrl:
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/marvel-cover.png',
         large: true,
         route: 'shop/marvel'
       }

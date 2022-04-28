@@ -235,3 +235,8 @@ query($id:ID!) {
 ## Reponsive Design
 
 - `@media` queries can be used in CSS to adjust the CSS of a component based on certain attributes (like max-width)
+
+## Progressive Web Apps
+
+- Allows web applications to be downloaded, send push notifications and other functionality that is usually restricted to native applications.
+- A service worker and manifest file must be included to enable this functionality, and it only works in production

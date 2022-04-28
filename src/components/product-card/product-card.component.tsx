@@ -24,7 +24,8 @@ const ProductCard: FC<ProductCardProps> = ({
         src={imageUrl}
         onError={({ currentTarget }) => {
           currentTarget.onerror = null
-          currentTarget.src = '/image-failed.jpg'
+          currentTarget.src =
+            'https://storage.googleapis.com/randell-comics.appspot.com/image-failed.jpg'
         }}
       />
       <Styled.Footer>
