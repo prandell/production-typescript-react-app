@@ -51,4 +51,7 @@ export const FormInputGroup = styled.div`
   input[type='password'] {
     letter-spacing: 0.3em;
   }
+  @media screen and (max-width: 800px) {
+    width: unset;
+  }
 `
