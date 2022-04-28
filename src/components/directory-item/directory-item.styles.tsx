@@ -24,6 +24,10 @@ export const DirectoryBodyContainer = styled.div`
     height: 60px;
     padding: 10px;
   }
+  @media screen and (max-width: 800px) {
+    width: min-content;
+    padding: 10px;
+  }
 
   p {
     font-weight: lighter;
