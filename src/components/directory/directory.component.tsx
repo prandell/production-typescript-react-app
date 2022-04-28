@@ -12,7 +12,7 @@ const Directory: FC = () => {
         title: 'New',
         subtitle: 'Shop the latest releases',
         imageUrl:
-          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/new-cover.png',
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/new-cover.jpg',
         large: false,
         route: 'shop/new'
       },
@@ -48,7 +48,7 @@ const Directory: FC = () => {
         title: 'Marvel',
         subtitle: 'Shop all Marvel Comics',
         imageUrl:
-          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/marvel-cover.png',
+          'https://storage.googleapis.com/randell-comics.appspot.com/category-covers/marvel-cover.jpg',
         large: true,
         route: 'shop/marvel'
       }
