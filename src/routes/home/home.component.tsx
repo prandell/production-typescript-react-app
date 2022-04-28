@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import CategoryMenu from '../../components/category-menu/category-menu.component'
+import Directory from '../../components/directory/directory.component'
 import * as Styled from './home.styles'
 
 const Home = (): ReactElement => {
@@ -13,7 +13,7 @@ const Home = (): ReactElement => {
         />
         <Styled.ShopTitleText>Randell Comics</Styled.ShopTitleText>
       </Styled.ShopTitle>
-      <CategoryMenu />
+      <Directory />
     </div>
   )
 }

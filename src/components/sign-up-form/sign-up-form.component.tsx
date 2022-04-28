@@ -49,7 +49,7 @@ const SignUpForm = (): ReactElement => {
     <Styled.SignUpContainer>
       <h2>Don't have an account?</h2>
       <span>Sign up with your email address</span>
-      <form onSubmit={handleSubmit} className="sign-up-form">
+      <Styled.SignUpForm onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
           required
@@ -87,7 +87,7 @@ const SignUpForm = (): ReactElement => {
         <Button inverted={false} type="submit">
           Sign Up
         </Button>
-      </form>
+      </Styled.SignUpForm>
     </Styled.SignUpContainer>
   )
 }

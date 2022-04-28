@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { ReactComponent as ThemeIconSvg } from '../../assets/theme-toggle.svg'
 
 export const ThemeToggle = styled.div`
-  padding: 5px 7px 0px 5px;
+  padding: 5px 15px 0px 10px;
   cursor: pointer;
 `
 

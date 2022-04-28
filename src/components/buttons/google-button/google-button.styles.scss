@@ -30,6 +30,9 @@ $button-active-blue: #1669f2;
     color: $white;
     font-size: 14px;
     letter-spacing: 0.2px;
+    @media screen and (max-width: 1200px) {
+      margin: 11px 24px 0 0;
+    }
   }
   &:hover {
     background-color: $white;

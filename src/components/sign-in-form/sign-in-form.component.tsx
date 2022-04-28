@@ -48,7 +48,7 @@ const SignInForm = (): ReactElement => {
     <Styled.SignInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your preferred method</span>
-      <form onSubmit={handleSubmit} className="sign-in-form">
+      <Styled.SignInForm onSubmit={handleSubmit}>
         <FormInput
           label="Email"
           required
@@ -71,7 +71,7 @@ const SignInForm = (): ReactElement => {
           </Button>
           <GoogleButton clickHandler={signInWithGoogle} />
         </Styled.ButtonsContainer>
-      </form>
+      </Styled.SignInForm>
     </Styled.SignInContainer>
   )
 }

@@ -231,3 +231,7 @@ query($id:ID!) {
 - `useMemo` is similar to useCallback except it stores the return value of the function you want to execute
 - you can wrap an entire component in `memo` to prevent it from being re-rendered. This can be used when an array being mapped over is being added to, but the existing elements are being re-rendered every time
 - Code Splitting allows you to split your bundled JS code at the route level so that we only download the JS we need for each route once we visit it
+
+## Reponsive Design
+
+- `@media` queries can be used in CSS to adjust the CSS of a component based on certain attributes (like max-width)

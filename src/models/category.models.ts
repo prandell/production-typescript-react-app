@@ -5,6 +5,7 @@ export type CategoryBanner = {
   title: string
   subtitle: string
   imageUrl: string
+  large: boolean
   route: string
 }
 

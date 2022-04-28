@@ -122,6 +122,14 @@ const incrementCartItem = (
   const existingCartItem = getCartItem(stateCartItems, product)
   if (existingCartItem) {
     existingCartItem.quantity += alteration
+    if (existingCartItem.quantity < 1) {
+      const index = stateCartItems.findIndex(
+        (i) => i.product.id === existingCartItem.product.id
+      )
+      if (index > -1) {
+        stateCartItems.splice(index, 1)
+      }
+    }
   } else {
     stateCartItems.push({ quantity: 1, product })
   }

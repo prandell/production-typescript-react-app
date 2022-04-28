@@ -22,5 +22,5 @@ export const CartCount = styled.span`
   color: var(--accent-colour);
   font-weight: bold;
   top: 0px;
-  right: 21px;
+  right: 47%;
 `
