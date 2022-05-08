@@ -9,11 +9,14 @@ exports.handler = async (event, context) => {
   try {
     const response = await fetch(API_ENDPOINT)
     const data = await response.json()
-    const stats = await fetch(STATS_ENDPOINT)
-    const achievements = await fetch(ACHIEVEMENTS_ENDPOINT)
+    const stats = await (await fetch(STATS_ENDPOINT)).json()
+    const achievements = await (await fetch(ACHIEVEMENTS_ENDPOINT)).json()
     console.log(achievements)
     console.log(stats)
-    return { statusCode: 200, body: JSON.stringify({ data }) }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ data, stats, achievements })
+    }
   } catch (error) {
     console.log(error)
     return {
